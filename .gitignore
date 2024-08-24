@@ -1,3 +1,9 @@
+## macOS files
+.DS_Store
+
+## tex files
+*/*.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
