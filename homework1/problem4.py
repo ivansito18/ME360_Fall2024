@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams.update({
-    "text.usetex": True,
-})
-
+plt.rcParams.update({"text.usetex": True})
 
 FONTSIZE = 16
 
