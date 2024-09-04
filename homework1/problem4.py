@@ -15,8 +15,8 @@ def signal(time):
 t = np.linspace(-3, 22, 1000)
 y = signal(t)
 
-f1, ax = plt.subplots(1,1,figsize=(10, 6))
-f1.suptitle(
+fig, ax = plt.subplots(1,1,figsize=(10, 6))
+fig.suptitle(
     r'Plot of $\sin^3(t)$ for $t > 0$, and $0$ otherwise', 
     fontsize=FONTSIZE+2
 )
