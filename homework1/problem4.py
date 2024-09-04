@@ -1,3 +1,4 @@
+# !sudo apt-get install texlive-full
 import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams.update({"text.usetex": True})
