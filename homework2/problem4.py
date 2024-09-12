@@ -8,17 +8,16 @@ plt.rcParams.update({"text.usetex": True})
 
 def plot_vectors(ax: Axes, fig_name: str, vectors: Dict[str, NDArray]) -> None:
     
+    # Plot vectors
+    for i, (key, vector) in enumerate(vectors.items()):
+        ax.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color=f"C{i}", label="$"+key+"$")
+
     ax.set_title(fig_name)
     ax.set_xlim(-5, 5)
     ax.set_ylim(-5, 5)
     ax.axhline(y=0, color='k', linestyle='--')
     ax.axvline(x=0, color='k', linestyle='--')
-    ax.grid(True, linestyle=':', alpha=0.7)
-
-    # Plot vectors
-    for i, (key, vector) in enumerate(vectors.items()):
-        ax.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color=f"C{i}", label="$"+key+"$")
-
+    ax.grid(True, linestyle=':', alpha=0.7)    
     ax.set_aspect('equal')
     ax.legend()
     
