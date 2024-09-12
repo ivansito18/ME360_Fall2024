@@ -2,7 +2,7 @@
 
 This guide covers how to install [PyTorch](https://pytorch.org/get-started/locally/) on Windows, macOS, and Linux.
 
-*Google colab has already installed with PyTorch by default.
+*[Google colab](https://colab.google/) has already installed with PyTorch by default.
 
 ## Prerequisites
 
