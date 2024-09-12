@@ -2,6 +2,8 @@
 
 This guide covers how to install [PyTorch](https://pytorch.org/get-started/locally/) on Windows, macOS, and Linux.
 
+*Google colab has already installed with PyTorch by default.
+
 ## Prerequisites
 
 - Python 3.8 or higher
