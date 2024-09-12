@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 try:
+    # This fixes the issue with LaTeX rendering if package is not installed
     plt.rcParams.update({"text.usetex": True})
     print("LaTeX rendering enabled successfully.")
 except Exception as e:
