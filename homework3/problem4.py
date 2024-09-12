@@ -1,34 +1,41 @@
 # !sudo apt-get install texlive-full # Uncomment this line if you are running this code on Google Colab
 
+from numpy.typing import NDArray
 import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
-
-plt.rcParams.update({"text.usetex": True})
+try:
+    plt.rcParams.update({"text.usetex": True})
+    print("LaTeX rendering enabled successfully.")
+except Exception as e:
+    print(f"Couldn't enable LaTeX rendering. Error: {e}")
+    print("Continuing without LaTeX support.")
 
 FONTSIZE = 16
 
-def generate_input_signal(time):
+def generate_input_signal(time: torch.Tensor) -> torch.Tensor:
     value = torch.zeros_like(time)
     mask = time >= 0
     value[mask] = torch.sin(time[mask]).pow(3)
     return value
 
-def plot_signals(time, signal_input, signal_output):
+def plot_signals(time: NDArray, signal_input: NDArray, signal_output: NDArray):
     fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-    ax.set_xlabel(r'$t$', fontsize=FONTSIZE)
+    ax.plot(time, signal_input, linewidth=5, label='Input Signal $u(t)$')
+    ax.plot(time, signal_output, linewidth=5, label='Output Signal $y(t)$')
+    
+    ax.set_xlabel('$t$', fontsize=FONTSIZE)
     ax.grid(True)
     ax.axhline(y=0, color='black', linestyle='-', alpha=1)
     ax.axvline(x=0, color='black', linestyle='-', alpha=1)
-    ax.plot(time.numpy(), signal_input.numpy(), linewidth=5, label='Input Signal $u(t)$')
-    ax.plot(time.numpy(), signal_output.detach().numpy(), linewidth=5, label='Output Signal $y(t)$')
     ax.set_xlim(-1, 11)
     ax.tick_params(axis='both', which='major', labelsize=FONTSIZE)
     ax.legend(fontsize=FONTSIZE, loc='lower right', bbox_to_anchor=(1, 1), ncol=2)
+    fig.tight_layout()
     plt.show()
 
 class LinearTransformation(nn.Module):
-    def __init__(self, weight):
+    def __init__(self, weight: torch.Tensor) -> None:
         super().__init__()
         input_dim = weight.shape[1]
         output_dim = weight.shape[0]
@@ -36,10 +43,10 @@ class LinearTransformation(nn.Module):
         self.linear = nn.Linear(input_dim, output_dim, bias=False)
         self.update_weight(weight)
     
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.linear(x)
     
-    def update_weight(self, weight):
+    def update_weight(self, weight: torch.Tensor) -> None:
         with torch.no_grad():
             self.linear.weight.copy_(weight)
 
@@ -75,7 +82,7 @@ def main():
         
 
     # Part 3: Plotting
-    plot_signals(time, input_signal, output_signal)
+    plot_signals(time.numpy(), input_signal.numpy(), output_signal.detach().numpy())
 
 if __name__ == "__main__":
     main()
