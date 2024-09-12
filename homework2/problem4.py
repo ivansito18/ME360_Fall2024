@@ -3,63 +3,56 @@ from typing import Dict
 import numpy as np
 from numpy.typing import NDArray
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
 plt.rcParams.update({"text.usetex": True})
 
-def plot_transformation(matrix_W: NDArray, vectors: Dict[str, NDArray]) -> None:
-    fig, (ax_original, ax_transformed) = plt.subplots(1, 2, figsize=(12, 5))
+def plot_vectors(ax: Axes, fig_name: str, vectors: Dict[str, NDArray]) -> None:
     
-    # Plot original vectors
+    ax.set_title(fig_name)
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(-5, 5)
+    ax.axhline(y=0, color='k', linestyle='--')
+    ax.axvline(x=0, color='k', linestyle='--')
+    ax.grid(True, linestyle=':', alpha=0.7)
 
-    ax_original.set_title("(a) original vectors")
-    ax_original.set_xlim(-5, 5)
-    ax_original.set_ylim(-5, 5)
-    ax_original.axhline(y=0, color='k', linestyle='--')
-    ax_original.axvline(x=0, color='k', linestyle='--')
-    ax_original.grid(True, linestyle=':', alpha=0.7)
-
+    # Plot vectors
     for i, (key, vector) in enumerate(vectors.items()):
-        
-        ax_original.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color=f"C{i}", label="$"+key+"$")
+        ax.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color=f"C{i}", label="$"+key+"$")
 
-
-    # Plot transformed vectors
-
-    ax_transformed.set_title("(b) after transformation")
-    ax_transformed.set_xlim(-5, 5)
-    ax_transformed.set_ylim(-5, 5)
-    ax_transformed.axhline(y=0, color='k', linestyle='--')
-    ax_transformed.axvline(x=0, color='k', linestyle='--')
-    ax_transformed.grid(True, linestyle=':', alpha=0.7)
-
-    for i, (key, vector) in enumerate(vectors.items()):
-        
-        transformed_v = matrix_W @ vector        
-        ax_transformed.quiver(0, 0, transformed_v[0], transformed_v[1], angles='xy', scale_units='xy', scale=1, color=f"C{i}", label="$W"+key+"$")
+    ax.set_aspect('equal')
+    ax.legend()
     
-    for ax in (ax_original, ax_transformed):
-        ax.set_aspect('equal')
-        ax.legend()
-    
-    plt.tight_layout()
-    plt.show()
 
 def main() -> None:
-    # Define vectors dictionary
+
+    fig, (ax_original, ax_transformed) = plt.subplots(1, 2, figsize=(12, 5))
+
+    # Define vectors
     vectors = {
         'v_a': np.array([-2., 1.]),
         'v_b': np.array([1., 1.]),
         'v_c': np.array([0., -2.]),
     }
-    
-    # Basic transformation
+    # Plot original vectors
+    plot_vectors(ax_original, "(a) original vectors", vectors)
+
+    # Define transformation matrix
     transformation_W = np.array([[2., 1.],[1.,2.]])
+
+    # Compute transformed vectors
+    transformed_vectors = {"W"+key: transformation_W @ vector for key, vector in vectors.items()}
+
+    # Plot transformed vectors
+    plot_vectors(ax_transformed, "(b) transformed vectors", transformed_vectors)
+
+    # Print transformed vectors
     print("Basic transformation:")
-    for key, vector in vectors.items():
-        result = transformation_W @ vector
-        print("W @ " + key + f" = {result}")
-    
-    # Plot transformation
-    plot_transformation(transformation_W, vectors)
+    for key, transformed_vector in transformed_vectors.items():
+        print(key + f" = {transformed_vector}")
+
+
+    fig.tight_layout()
+    plt.show()
 
 
 if __name__ == "__main__":
