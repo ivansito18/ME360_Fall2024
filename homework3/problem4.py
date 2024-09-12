@@ -59,7 +59,7 @@ def main():
     # Part 2: Signal Transformation
     
     ## Create a LinearTransformation instance
-    linear_transform_weight = torch.tensor([[1., 1.]])
+    linear_transform_weight = torch.tensor([[1., 1.]]) # Define the transformation matrix W
     linear_transform = LinearTransformation(
         weight=linear_transform_weight
     )
@@ -68,9 +68,11 @@ def main():
     output_signal = torch.zeros_like(input_signal)
     past_input_length = linear_transform_weight.shape[1]
     for index, n in enumerate(discrete_time[past_input_length-1:]):
-        output_signal[past_input_length-1+index] = linear_transform(
-            input_signal[index: index+past_input_length]
-        )
+        input_history = input_signal[index: index+past_input_length]
+        # The next line means: output_signal = W @ input_history where W is the transformation matrix
+        # It calls the forward method of the LinearTransformation instance
+        output_signal[past_input_length-1+index] = linear_transform(input_history) 
+        
 
     # Part 3: Plotting
     plot_signals(time, input_signal, output_signal)
