@@ -1,5 +1,3 @@
-# !sudo apt-get install texlive-full # Uncomment this line if you are running this code on Google Colab
-
 from numpy.typing import NDArray
 import torch
 import torch.nn as nn
@@ -22,8 +20,13 @@ def generate_input_signal(time: torch.Tensor) -> torch.Tensor:
 
 def plot_signals(time: NDArray, signal_input: NDArray, signal_output: NDArray):
     fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-    ax.plot(time, signal_input, linewidth=5, label='Input Signal $u(t)$')
-    ax.plot(time, signal_output, linewidth=5, label='Output Signal $y(t)$')
+    try:
+        ax.plot(time, signal_input, linewidth=5, label='Input Signal $u(t)$')
+        ax.plot(time, signal_output, linewidth=5, label='Output Signal $y(t)$')
+    except Exception as e:
+        ax.plot(time, signal_input, linewidth=5, label='Input Signal u(t)')
+        ax.plot(time, signal_output, linewidth=5, label='Output Signal y(t)')
+        print(f"Couldn't render the labels with LaTeX. Error: {e}")
     
     ax.set_xlabel('$t$', fontsize=FONTSIZE)
     ax.grid(True)
