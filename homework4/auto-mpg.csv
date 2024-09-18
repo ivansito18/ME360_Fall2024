@@ -75,7 +75,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 13,8,307,130,4098,14,72,1,chevrolet chevelle concours (sw)
 13,8,302,140,4294,16,72,1,ford gran torino (sw)
 14,8,318,150,4077,14,72,1,plymouth satellite custom (sw)
-18,4,121,112,2933,14.5,72,2,volvo 145e (sw)
 22,4,121,76,2511,18,72,2,volkswagen 411 (sw)
 21,4,120,87,2979,19.5,72,2,peugeot 504 (sw)
 26,4,96,69,2189,18,72,2,renault 12 (sw)
@@ -119,7 +118,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 29,4,68,49,1867,19.5,73,2,fiat 128
 24,4,116,75,2158,15.5,73,2,opel manta
 20,4,114,91,2582,14,73,2,audi 100ls
-19,4,121,112,2868,15.5,73,2,volvo 144ea
 15,8,318,150,3399,11,73,1,dodge dart custom
 24,4,121,110,2660,14,73,2,saab 99le
 20,6,156,122,2807,13.5,73,3,toyota mark ii
@@ -164,7 +162,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 15,6,258,110,3730,19,75,1,amc matador
 18,6,225,95,3785,19,75,1,plymouth fury
 21,6,231,110,3039,15,75,1,buick skyhawk
-20,8,262,110,3221,13.5,75,1,chevrolet monza 2+2
 13,8,302,129,3169,12,75,1,ford mustang ii
 29,4,97,75,2171,16,75,3,toyota corolla
 23,4,140,83,2639,17,75,1,ford pinto
@@ -206,7 +203,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 32,4,85,70,1990,17,76,3,datsun b-210
 28,4,97,75,2155,16.4,76,3,toyota corolla
 26.5,4,140,72,2565,13.6,76,1,ford pinto
-20,4,130,102,3150,15.7,76,2,volvo 245
 13,8,318,150,3940,13.2,76,1,plymouth volare premier v8
 19,4,120,88,3270,21.9,76,2,peugeot 504
 19,6,156,108,2930,15.5,76,3,toyota mark ii
@@ -248,7 +244,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 32.8,4,78,52,1985,19.4,78,3,mazda glc deluxe
 39.4,4,85,70,2070,18.6,78,3,datsun b210 gx
 36.1,4,91,60,1800,16.4,78,3,honda civic cvcc
-19.9,8,260,110,3365,15.5,78,1,oldsmobile cutlass salon brougham
 19.4,8,318,140,3735,13.2,78,1,dodge diplomat
 20.2,8,302,139,3570,12.8,78,1,mercury monarch ghia
 19.2,6,231,105,3535,19.2,78,1,pontiac phoenix lj
@@ -290,16 +285,13 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 18.2,8,318,135,3830,15.2,79,1,dodge st. regis
 16.9,8,350,155,4360,14.9,79,1,buick estate wagon (sw)
 15.5,8,351,142,4054,14.3,79,1,ford country squire (sw)
-19.2,8,267,125,3605,15,79,1,chevrolet malibu classic (sw)
 18.5,8,360,150,3940,13,79,1,chrysler lebaron town @ country (sw)
 31.9,4,89,71,1925,14,79,2,vw rabbit custom
 34.1,4,86,65,1975,15.2,79,3,maxda glc deluxe
 35.7,4,98,80,1915,14.4,79,1,dodge colt hatchback custom
 27.4,4,121,80,2670,15,79,1,amc spirit dl
 25.4,5,183,77,3530,20.1,79,2,mercedes benz 300d
-23,8,350,125,3900,17.4,79,1,cadillac eldorado
 27.2,4,141,71,3190,24.8,79,2,peugeot 504
-23.9,8,260,90,3420,22.2,79,1,oldsmobile cutlass salon brougham
 34.2,4,105,70,2200,13.2,79,1,plymouth horizon
 34.5,4,105,70,2150,14.9,79,1,plymouth horizon tc3
 31.8,4,85,65,2020,19.2,79,3,datsun 210
@@ -363,7 +355,6 @@ mpg,cylinders,displacement,horsepower,weight,acceleration,model year,origin,car 
 25.4,6,168,116,2900,12.6,81,3,toyota cressida
 24.2,6,146,120,2930,13.8,81,3,datsun 810 maxima
 22.4,6,231,110,3415,15.8,81,1,buick century
-26.6,8,350,105,3725,19,81,1,oldsmobile cutlass ls
 20.2,6,200,88,3060,17.1,81,1,ford granada gl
 17.6,6,225,85,3465,16.6,81,1,chrysler lebaron salon
 28,4,112,88,2605,19.6,82,1,chevrolet cavalier
