@@ -6,6 +6,8 @@ try:
     # This fixes the issue with LaTeX rendering if package is not installed
     plt.rcParams.update({"text.usetex": True})
     print("LaTeX rendering enabled successfully.")
+    import matplotlib as mpl
+    mpl.rcParams.update(mpl.rcParamsDefault)
 except Exception as e:
     print(f"Couldn't enable LaTeX rendering. Error: {e}")
     print("Continuing without LaTeX support.")
@@ -23,12 +25,13 @@ def plot_signals(time: NDArray, signal_input: NDArray, signal_output: NDArray):
     try:
         ax.plot(time, signal_input, linewidth=5, label='Input Signal $u(t)$')
         ax.plot(time, signal_output, linewidth=5, label='Output Signal $y(t)$')
+        ax.set_xlabel('$t$', fontsize=FONTSIZE)
     except Exception as e:
         ax.plot(time, signal_input, linewidth=5, label='Input Signal u(t)')
         ax.plot(time, signal_output, linewidth=5, label='Output Signal y(t)')
+        ax.set_xlabel('t', fontsize=FONTSIZE)
         print(f"Couldn't render the labels with LaTeX. Error: {e}")
     
-    ax.set_xlabel('$t$', fontsize=FONTSIZE)
     ax.grid(True)
     ax.axhline(y=0, color='black', linestyle='-', alpha=1)
     ax.axvline(x=0, color='black', linestyle='-', alpha=1)
