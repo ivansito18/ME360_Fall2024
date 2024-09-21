@@ -30,7 +30,9 @@ def main():
 
     # Evaluate the model on both training and testing data
     accuracy, loss = evaluate_model(model, data_loader, loss_func)
-    print(f'Accuracy of the model on the data: {accuracy:.2f}%. Loss: {loss:.2f}')
+
+    print(f'For the model with weight: {model.weight}')
+    print(f'Accuracy of the model on the data: {accuracy:.2f}%. Loss: {loss/2:.4f}\n')
     
     # Plot the data
     fig, ax = plot_data(data_X, data_y)

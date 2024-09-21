@@ -1,6 +1,5 @@
 import torch
 from torch.nn import MSELoss
-from torch.optim import SGD
 import matplotlib.pyplot as plt
 
 from utils_data import import_data, VehicleDataset, split_dataset, plot_data
@@ -21,7 +20,8 @@ def main():
     # Initialize model, loss function, and optimizer
     model = BinaryClassifier(
         input_size=data_X.shape[1],  # 2 features: mpg and horsepower
-    ) 
+    )
+    loss_function = MSELoss()
     
     # Change the weight of the model in the following section
     #########################################################
@@ -31,8 +31,10 @@ def main():
     #########################################################
 
     # Evaluate the model on both training and testing data
-    accuracy, _ = evaluate_model(model, data_loader)
-    print(f'Accuracy of the model on the data: {accuracy:.2f}%')
+    accuracy, loss = evaluate_model(model, data_loader, loss_function)
+
+    print(f'For the model with weight: {model.weight}')
+    print(f'Accuracy of the model on the data: {accuracy:.2f}%. Loss: {loss/2:.4f}\n')
     
     # Plot the data
     fig, ax = plot_data(data_X, data_y)

@@ -17,7 +17,7 @@ def main():
     print(f"There are {len(data_y.unique())} unique labels in the dataset.")
     for label in data_y.unique():
         print(f"Dataset with {label}-cylinder engines has {len(data_y[data_y == label])} samples.")
-
+    print("\n")
 
     # Create full dataset for training in PyTorch
     full_dataset = VehicleDataset(data_X, data_y)

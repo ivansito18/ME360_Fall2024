@@ -92,9 +92,10 @@ def split_dataset(
     test_loader = DataLoader(test_dataset, batch_size=_batch_size, shuffle=False)
 
     if print_samples:
-        print(f"\nContent of {number_of_samples} random samples are shown as follows:")
+        print(f"Content of {number_of_samples} random samples are shown as follows:")
         for inputs, labels in train_loader:
             print(f"Sample: {inputs=}, {labels=}")
+        print("\n")
 
     return train_loader, test_loader
 
