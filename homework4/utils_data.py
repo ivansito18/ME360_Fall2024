@@ -11,7 +11,7 @@ FONTSIZE = 16
 
 def import_data() -> tuple[pd.DataFrame, pd.DataFrame]:
     # Load data
-    link = 'https://raw.githubusercontent.com/Mehta-Research-Group-UIUC/ME360_Fall2024/feat/homework4/homework4/auto-mpg.csv'
+    link = 'https://raw.githubusercontent.com/Mehta-Research-Group-UIUC/ME360_Fall2024/main/homework4/auto-mpg.csv'
     data = pd.read_csv(link)
 
     # Data preprocessing
