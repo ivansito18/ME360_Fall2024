@@ -26,7 +26,7 @@ def main():
     # Change the weight of the model in the following section
     #########################################################
 
-    model.weight = torch.tensor([20, -1, 0.])
+    model.weight = torch.tensor([22.0, -1.0, 0.0])
 
     #########################################################
 
