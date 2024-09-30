@@ -99,7 +99,7 @@ def plot_training(
 
     # Plot loss history
     ax_loss = fig.add_subplot(gs[0, :])
-    ax_loss.plot(loss_history)
+    ax_loss.plot(loss_history, color='red')
     ax_loss.set_xlabel('Iteration', fontsize=FONTSIZE)
     ax_loss.set_ylabel('Loss', fontsize=FONTSIZE)
     axes.append(ax_loss)
