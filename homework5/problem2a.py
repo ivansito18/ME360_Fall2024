@@ -11,4 +11,4 @@ y = np.zeros(N)
 
 for i in range(0,N):
 	x[i] = # insert code here
-	y[i] = np.random.normal(0.,1.,1)
+	y[i] = x[i] + np.random.normal(0.,1.,1)
