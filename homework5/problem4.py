@@ -28,8 +28,8 @@ def main():
     # iterations of the training process in the following section
     #########################################################
 
-    model.weight = torch.tensor([15.0, -0.5, 0.1])
-    learning_rate: float = 0.0001
+    model.weight = torch.tensor([15.0, -0.5, 0.1]) # torch.tensor([14.0, -0.8, 0.8])
+    learning_rate: float = 1e-2
     number_of_iterations: int = 300
 
     #########################################################
@@ -51,6 +51,7 @@ def main():
     # Plot the loss history with the weight at some iterations
     loss_fig, axes = plot_training(loss_history, weight_history, data_X, data_y, model)    
     loss_fig.tight_layout()
+    plt.savefig("l1.pdf")
     plt.show()
 
 if __name__ == '__main__':
