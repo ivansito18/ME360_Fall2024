@@ -55,6 +55,8 @@ class SignalSamplingApp:
         self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
         self.default_sampling_rate = 100.0
+        self.minimum_smapling_rate = 1.0
+        self.maximum_smapling_rate = 200.0
         self.sampling_rate = tk.DoubleVar(value=self.default_sampling_rate)
         self.create_widgets()
 
@@ -65,7 +67,7 @@ class SignalSamplingApp:
         frame.pack(side=tk.BOTTOM, fill=tk.X)
 
         ttk.Label(frame, text="Sampling Rate (Hz):").pack(side=tk.LEFT, padx=(10, 0))
-        sampling_slider = ttk.Scale(frame, from_=1, to=200, orient=tk.HORIZONTAL, 
+        sampling_slider = ttk.Scale(frame, from_=self.minimum_smapling_rate, to=self.maximum_smapling_rate, orient=tk.HORIZONTAL, 
                                     variable=self.sampling_rate, command=self.on_slider_change)
         sampling_slider.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=10)
         
@@ -79,7 +81,7 @@ class SignalSamplingApp:
     def on_entry_change(self, event):
         try:
             value = float(self.sampling_rate.get())
-            if 1 <= value <= 100:
+            if self.minimum_smapling_rate <= value <= self.maximum_smapling_rate:
                 self.update_plot()
             else:
                 self.sampling_rate.set(self.default_sampling_rate)
