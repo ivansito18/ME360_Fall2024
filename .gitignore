@@ -8,9 +8,7 @@ __pycache__/
 backup_*
 
 ## solution files
-*_soln.pdf
-*_soln.py
-*_soln.png
+*soln*.*
 
 ## macOS files
 .DS_Store
