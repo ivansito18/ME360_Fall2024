@@ -17,7 +17,7 @@ def convolution(x1, x2):
     return output
 
 
-### Problem 2.3
+### Problem 4.1
 
 l = 3
 lconv = 2*l - 1
@@ -49,7 +49,7 @@ f1.suptitle("Problem 4.1")
 plt.show()
 plt.close()
 
-### Problem 2.4
+### Problem 4.2
 
 trunc = 5
 l = 2*trunc + 1
@@ -77,9 +77,9 @@ ax.set_xticks(np.arange(l))
 ax.set_xticklabels(tick_labels)
 
 ax = axs[2]
-ax.stem(np.arange(lconv),z1)
+ax.stem(np.arange(lconv)-trunc*2,z1)
 ax.set_ylabel("z1")
-ax.set_xticks(np.arange(lconv))
+ax.set_xticks(np.arange(lconv)-trunc*2)
 
 f1.suptitle("Problem 4.2")
 plt.show()
