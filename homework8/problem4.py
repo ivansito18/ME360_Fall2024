@@ -17,5 +17,5 @@ ax.stem(np.arange(number_of_time_steps), y[:-1])
 ax.set_xlabel("time step")
 ax.set_ylabel("y")
 
-fig.suptitle("Problem 4")
+fig.suptitle("Problem 4 demo")
 plt.show()
