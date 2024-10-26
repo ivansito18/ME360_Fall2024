@@ -1,23 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-N = 16
+number_of_time_steps = 16
 
-y = np.zeros(N)
-u = np.ones(N-1)
+y = np.zeros(number_of_time_steps+1)
+u = np.zeros(number_of_time_steps)
 
-y[0] = 0.
+y[-1] = 0.0 # initial condition
 
-for n in range(N-1):
-	y[n+1] = y[n] + u[n]
+for n in range(number_of_time_steps):
+	u[n] = 1.0 # This is input
+	y[n] = y[n-1] + u[n] # This is system update
 
-
-f1, ax = plt.subplots(1,1)
-ax.stem(np.arange(N),y)
+fig, ax = plt.subplots(1,1)
+ax.stem(np.arange(number_of_time_steps), y[:-1])
+ax.set_xlabel("time step")
 ax.set_ylabel("y")
-ax.set_xticks(np.arange(N))
-ax.set_xticklabels(np.arange(-1,N-1))
 
-f1.suptitle("Problem 4 demo")
+fig.suptitle("Problem 4")
 plt.show()
-plt.close()
